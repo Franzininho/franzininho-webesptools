@@ -1,0 +1,14 @@
+{
+	"name": "MicroPython - Wroom",
+	"new_install_prompt_erase": true,
+	"builds": [
+	  {
+		"chipFamily": "ESP32-S2",
+		"parts": [
+		  { "path": "bootloaderWroom.bin", "offset": 4096 },
+		  { "path": "partition-tableWroom.bin", "offset": 32768 },
+		  { "path": "micropythonWroom.bin", "offset": 65536 }
+		]
+	  }
+	]
+}

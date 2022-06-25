@@ -1,0 +1,12 @@
+{
+	"name": "CircuitPython - Wrover",
+	"new_install_prompt_erase": true,
+	"builds": [
+	  {
+		"chipFamily": "ESP32-S2",
+		"parts": [
+		  { "path": "adafruit-circuitpython-franzininho_wifi_wrover-pt_BR-7.3.1.bin", "offset": 0 }
+		]
+	  }
+	]
+}

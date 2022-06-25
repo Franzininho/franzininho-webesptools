@@ -1,0 +1,30 @@
+
+    body {
+      background-color: #fff;
+      font-family: sans-serif;
+    }
+    h1 {
+      font-weight: normal;
+      font-size: 140%;
+    }
+		
+	.nav-pills .nav-link.active, .nav-pills .show>.nav-link {
+		color: #fff;
+		background-color: #28a745;
+	}
+	
+	a {
+		color: #28a745;
+	}
+	a:hover {
+		color: #28a745;
+	}
+	
+	.dropdown-item {
+		color: #28a745;
+	}
+	
+	#installButton {
+		--esp-tools-button-color: #28a745;
+	}
+		
