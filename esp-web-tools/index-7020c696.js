@@ -20,30 +20,30 @@ import{d as e,r as t,_ as o,n as l,s as i,$ as n,y as a}from"./connect-f67814ca.
 `;let r=class extends i{render(){return n`
       <ewt-dialog
         open
-        heading="No port selected"
+        heading="Porta não selecionada"
         scrimClickAction
         @closed=${this._handleClose}
       >
         <div>
-          If you didn't select a port because you didn't see your device listed,
-          try the following steps:
+		  Se você não selecionou a porta porque seu dispositivo não foi listado,
+          tente os passos:
         </div>
         <ol>
           <li>
-            Make sure that the device is connected to this computer (the one
-            that runs the browser that shows this website)
+		    Certifique-se de que o dispositivo esteja conectado a este computador (aquele
+             que esta executando o navegador que mostra este site)
           </li>
           <li>
-            Most devices have a tiny light when it is powered on. If yours has
-            one, make sure it is on.
+            A maioria dos dispositivos tem uma pequena luz quando está ligada. Verifique se o seu tem
+             um e certifique-se de que está ligado.
           </li>
           <li>
-            Make sure that the USB cable you use can be used for data and is not
-            a power-only cable.
+            Certifique-se de que o cabo USB que você usa pode ser usado para dados e não é
+             um cabo somente de energia.
           </li>
           <li>
-            Make sure you have the right drivers installed. Below are the
-            drivers for common chips used in ESP devices:
+            Certifique-se de ter os drivers corretos instalados. Abaixo estão os
+             drivers para os chips mais comuns utilizados em dispositivos ESP:
             <ul>
               <li>
                 CP2102 drivers:
@@ -69,7 +69,7 @@ import{d as e,r as t,_ as o,n as l,s as i,$ as n,y as a}from"./connect-f67814ca.
                   >Mac</a
                 >
                 <br />
-                (download via blue button with ${s} icon)
+                (download no botão azul com o ${s} icone)
               </li>
               <li>
                 CH340, CH341 drivers:
@@ -86,7 +86,7 @@ import{d as e,r as t,_ as o,n as l,s as i,$ as n,y as a}from"./connect-f67814ca.
                   >Mac</a
                 >
                 <br />
-                (download via blue button with ${s} icon)
+                (download no botão azul com o ${s} icone)
               </li>
             </ul>
           </li>
@@ -95,7 +95,7 @@ import{d as e,r as t,_ as o,n as l,s as i,$ as n,y as a}from"./connect-f67814ca.
               <ewt-button
                 slot="primaryAction"
                 dialogAction="close"
-                label="Try Again"
+                label="Tente novamente"
                 @click=${this.doTryAgain}
               ></ewt-button>
 
@@ -103,13 +103,13 @@ import{d as e,r as t,_ as o,n as l,s as i,$ as n,y as a}from"./connect-f67814ca.
                 no-attention
                 slot="secondaryAction"
                 dialogAction="close"
-                label="Cancel"
+                label="Cancelar"
               ></ewt-button>
             `:n`
               <ewt-button
                 slot="primaryAction"
                 dialogAction="close"
-                label="Close"
+                label="Sair"
               ></ewt-button>
             `}
       </ewt-dialog>
