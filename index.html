@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Franzininho - ESP Web Tools</title>
+  <title>Franzininho WiFi - ESP Web Tools</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   
@@ -23,26 +23,12 @@
 	<nav class="navbar bg-light navbar-light">
 	  <!-- Brand/logo -->
 	  <a class="navbar-brand text-success" href="#">
-		<img src="./imagens/logo.svg" alt="logo" style="width:40px;"> Franzininho - ESP Web Tools
+		<img src="./imagens/logo.svg" alt="logo" style="width:40px;"> Franzininho WiFi - ESP Web Tools
 	  </a>
 	  <!-- Links -->
 	  <ul class="nav justify-content-end">
 		  <li class="nav-item" >
-		    <a class="nav-link active text-success" href="https://franzininho.github.io/docs-franzininho-site/"><i class="bi bi-cloud-haze"></i>  Site</a>
-		  </li>
-		  <li class="nav-item dropdown">
-			<a class="nav-link dropdown-toggle text-success" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-			  <i class="bi bi-cpu"></i>  Placas
-			</a>
-			<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-			  <a class="dropdown-item" href="https://franzininho.github.io/docs-franzininho-site/docs/franzininho-diy/sobre"><i class="bi bi-lightbulb"></i>  Franzininho DIY</a>
-			  <a class="dropdown-item" href="https://franzininho.github.io/docs-franzininho-site/docs/franzininho-wifi/franzininho-wifi"><i class="bi bi-lightbulb"></i>  Franzininho WiFi</a>
-			  <a class="dropdown-item" href="https://franzininho.github.io/docs-franzininho-site/docs/franzininho-tiny/franzininho-tiny"><i class="bi bi-lightbulb"></i>  Franzininho Tiny</a>
-			  <a class="dropdown-item" href="https://franzininho.github.io/docs-franzininho-site/docs/Franzino/franzino"><i class="bi bi-lightbulb"></i>  Franzino</a>
-			  <a class="dropdown-item" href="https://franzininho.github.io/docs-franzininho-site/docs/FranzBoy/franzboy"><i class="bi bi-lightbulb"></i>  FranzBoy</a>
-			  <a class="dropdown-item" href="https://franzininho.github.io/docs-franzininho-site/docs/badge/badge"><i class="bi bi-lightbulb"></i>  Badge</a>
-			</div>
-		  </li>
+		    <a class="nav-link active text-success" href="https://docs.franzininho.com.br/docs"><i class="bi bi-book-half"></i>  Documentação</a>
 		  <li class="nav-item">
 			<a class="nav-link text-success" href="#"  data-toggle="modal" data-target="#myModal"><i class="bi bi-heart"></i>  Sobre</a>
 		  </li>
@@ -56,7 +42,7 @@
 		  
 			<!-- Modal Header -->
 			<div class="modal-header">
-			  <h4 class="modal-title">Franzininho ESP Web Tools</h4>
+			  <h4 class="modal-title">Franzininho WiFi - ESP Web Tools</h4>
 			  <button type="button" class="close" data-dismiss="modal">&times;</button>
 			</div>
 			
@@ -91,15 +77,17 @@
 
 	
 	<div class="container-fluid" style="height: 500px; display: none;" id="main">
+
+		<p>
+			Ferramenta para gravação do firmware para MicroPython ou CircuitPython na Franzininho WiFi.
+			<br></br>
+			Selecione qual firmware deseja instalar e siga as instruções abaixo.
+			<br></br>
+		</p>
 	
 		<!-- Nav pills -->
 		<ul class="nav nav-pills">
 		  <li class="nav-item">
-			<a class="nav-link active" data-toggle="pill" href="#arduino"><img src="./imagens/arduino.png" style="border:none;"> Arduino</a>
-		  </li>
-		  <li class="nav-item">
-			<a class="nav-link" data-toggle="pill" href="#espidf"><img src="./imagens/espidf.png" style="border:none;">  ESP-IDF</a>
-		  </li>
 		  <li class="nav-item">
 			<a class="nav-link" data-toggle="pill" href="#circuitpython"><img src="./imagens/circuitpython.png" style="border:none;"> CircuitPython</a>
 		  </li>
@@ -107,73 +95,29 @@
 			<a class="nav-link " data-toggle="pill" href="#micropython"><img src="./imagens/micropython.png" style="border:none;">   MicroPython</a>
 		  </li>
 		  <li class="nav-item">
-			<a class="nav-link " data-toggle="pill" href="#zephyr"><img src="./imagens/zephyr.png" style="border:none;"> Zephyr</a>
-		  </li>
-		  <li class="nav-item">
 			<a class="nav-link " data-toggle="pill" href="#custom"><i class="bi bi-search"></i>  Seu firmware...</a>
-		  </li>
-		  <li class="nav-item">
-			<a class="nav-link " data-toggle="pill" href="#hardware"><i class="bi bi-search"></i>  Hardware</a>
 		  </li>
 		</ul>
 		
 		<br/>
 
 		<!-- Tab panes -->
-		<div class="tab-content">
-		  <!-- Arduino -->	
-		  <div class="tab-pane container-fluid active" id="arduino">
-			<div class="row">
-				<div class="col-sm-12 receiver" style="margin-top:1%;">
-				  <div class="lines-header">
-					  <span class="badge badge-warning">Arduino v1.8.19</span>
-					  <br/><br/>
-						<p>Framework Arduino.</p>
-						<p>1º - Conecte a sua placa Franzininho a uma das portas USB de seu computador;</p>
-						<p>2º - Coloque sua placa em modo DFU;</p>
-						<p>3º - Clique no botão Conectar logo abaixo.</p>
-				  </div>				  
-				  <div class="lines-body">					
-					<script type="module" src="esp-web-tools/install-button.js?module"></script>
-					<esp-web-install-button id="installButton" manifest="firmwares/arduino/manifestWroom.json">
-						<button slot="activate" class="btn btn-primary" style="background-color: #28a745;">Conectar</button>
-					</esp-web-install-button>
-				  </div>
-				</div>	
-			</div>
-		  </div>
-		  <!-- ESP-IDF -->	
-		  <div class="tab-pane container-fluid" id="espidf">
-			<div class="row">
-				<div class="col-sm-12 receiver" style="margin-top:1%;">
-				  <div class="lines-header">
-				  	<span class="badge badge-warning">ESP-IDF v4.4</span>
-					<br/><br/>
-					<p>O ESP-IDF, Espressif IoT Development Framework é o framework oficial dos microcontroladores da família ESP32.</p>
-					<p>1º - Conecte a sua placa Franzininho a uma das portas USB de seu computador;</p>
-					<p>2º - Coloque sua placa em modo DFU;</p>
-					<p>3º - Clique no botão Conectar logo abaixo.</p>
-				  </div>
-				</div>	
-				<div class="lines-body">					
-					<script type="module" src="esp-web-tools/install-button.js?module"></script>
-					<esp-web-install-button id="installButton" manifest="firmwares/espidf/manifestWroom.json">
-						<button slot="activate" class="btn btn-primary" style="background-color: #28a745;">Conectar</button>
-					</esp-web-install-button>
-				</div>
-			</div>
-		  </div>
+		<div class="tab-content">		  
 		  <!-- CircuitPython -->	
-		  <div class="tab-pane container-fluid" id="circuitpython">
+		  <div class="tab-pane container-fluid active" id="circuitpython">
 			<div class="row">
 				<div class="col-sm-12 receiver" style="margin-top:1%;">
 				  <div class="lines-header">
 					<span class="badge badge-warning">CircuitPython v7.3.1</span>
 					<br/><br/>
-					<p>O CircuitPython é um interpretador Python de código aberto baseado no MicroPython.</p>
 					<p>1º - Conecte a sua placa Franzininho a uma das portas USB de seu computador;</p>
-					<p>2º - Coloque sua placa em modo DFU;</p>
-					<p>3º - Clique no botão Conectar logo abaixo.</p>
+					<p>2º - Coloque sua placa em modo DFU:</p>
+					<ol>
+						<li>Pressione e segure a tecla BOOT.</li>
+						<li>Pressione rapidamente e solte a tecla RESET.</li>
+						<li>Solte a tecla BOOT.</li>
+					  </ol>
+					<p>3º - Clique no botão Conectar logo abaixo.</p>	
 				  </div>				  
 				  <div class="lines-body">					
 					<script type="module" src="esp-web-tools/install-button.js?module"></script>
@@ -193,7 +137,12 @@
 					<br/><br/>
 					<p>O MicroPython é um interpretador Python de código aberto desenvolvido para uso em microcontroladores.</p>
 					<p>1º - Conecte a sua placa Franzininho a uma das portas USB de seu computador;</p>
-					<p>2º - Coloque sua placa em modo DFU;</p>
+					<p>2º - Coloque sua placa em modo DFU:</p>
+					<ol>
+						<li>Pressione e segure a tecla BOOT.</li>
+						<li>Pressione rapidamente e solte a tecla RESET.</li>
+						<li>Solte a tecla BOOT.</li>
+					  </ol>
 					<p>3º - Clique no botão Conectar logo abaixo.</p>					
 				  </div>
 				  <div class="lines-body">					
@@ -205,19 +154,7 @@
 				</div>	
 			</div>
 		  </div>
-		  <!-- Zephyr -->	
-		  <div class="tab-pane container-fluid" id="zephyr">
-			<div class="row">
-				<div class="col-sm-12 receiver" style="margin-top:1%;">
-				  <div class="lines-header"><span class="badge badge-warning">Zephyr</span></div>
-				  <div class="lines-body">					
-				    <br/>
-					<img src="./imagens/embreve.png" class="img-thumbnail" alt="Em breve" style="border:none;">
-				  </div>
-				</div>	
-			</div>
-		  </div>
-		  <!-- Custom -->	
+		 <!-- Custom -->	
 		  <div class="tab-pane container-fluid" id="custom">
 			<div class="row">
 				<div class="col-sm-12 receiver" style="margin-top:1%;">
@@ -228,42 +165,18 @@
 				  </div>
 				</div>	
 			</div>
-		  </div>
-		  <!-- HARDWARE FRANZININHO WIFI -->	
-		  <div class="tab-pane container-fluid" id="hardware">	
-			<div class="row">
-				<div class="col-sm-6">
-				  <div class="thumbnail">
-					<a href="./imagens/pinagem-franzininho-wifi-r1.png" target="_blank">
-					  <img src="./imagens/pinagem-franzininho-wifi-r1.png" class="rounded" alt="Pinagem" width="100%">
-					  <div class="caption">
-						<p>Franzininho WiFi - Release 1.0</p>
-					  </div>
-					</a>
-				  </div>
-				</div>
-				<div class="col-sm-6">
-				  <div class="thumbnail">
-					<a href="./imagens/pinagem-franzininho-wifi-devedition.png" target="_blank">
-					  <img src="./imagens/pinagem-franzininho-wifi-devedition.png" class="rounded" alt="Pinagem" width="100%">
-					  <div class="caption">
-						<p>Franzininho WiFi - Dev. Edition</p>
-					  </div>
-					</a>
-				  </div>
-				</div>								
-			</div>
 		  </div>		  
-		  
 		</div>
 		
     </div>
 	<div id="notSupported" style="display: none;">
-        Seu navegador não suporta Web Serial API. Tente usar o Google Chrome.
+		<div class="alert alert-warning">
+			<strong>Ops!</strong> Seu navegador não suporta Web Serial 😭. Use o Google Chrome.
+		  </div>
     </div>
 		
 	<nav class="navbar fixed-bottom navbar-light bg-light">		
-		<a class="nav" href="https://franzininho.github.io/docs-franzininho-site/">Copyright © 2022 Franzininho.</a>
+		<a class="nav" href="https://franzininho.github.io/docs-franzininho-site/">Copyright © 2024 Franzininho.</a>
 	</nav>
 	
   <script>
