@@ -5,7 +5,7 @@
 	  {
 		"chipFamily": "ESP32-S2",
 		"parts": [
-		  { "path": "adafruit-circuitpython-franzininho_wifi_wroom-pt_BR-7.3.1.bin", "offset": 0 }
+		  { "path": "adafruit-circuitpython-franzininho_wifi_wroom-pt_BR-9.0.5.bin", "offset": 0 }
 		]
 	  }
 	]
