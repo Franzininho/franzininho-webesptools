@@ -5,9 +5,7 @@
 	  {
 		"chipFamily": "ESP32-S2",
 		"parts": [
-		  { "path": "bootloaderWroom.bin", "offset": 4096 },
-		  { "path": "partition-tableWroom.bin", "offset": 32768 },
-		  { "path": "micropythonWroom.bin", "offset": 65536 }
+		  { "path": "ESP32_GENERIC_S2-20241129-v1.24.1.bin", "offset": 4096 }
 		]
 	  }
 	]
