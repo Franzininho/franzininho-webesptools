@@ -79,9 +79,9 @@
 	<div class="container-fluid" style="height: 500px; display: none;" id="main">
 
 		<p>
-			Ferramenta para gravação do firmware para MicroPython ou CircuitPython na Franzininho WiFi.
+			Ferramenta para gravação do firmwares para Franzininho WiFi.
 			<br></br>
-			Selecione qual firmware deseja instalar e siga as instruções abaixo.
+			Selecione qual firmware deseja instalar e siga as instruções.
 			<br></br>
 		</p>
 	
@@ -204,8 +204,8 @@
 				  </form>
 				  <div class="lines-body">	
 					<esp-web-install-button id="customInstallButton">
-					  <button slot="activate" class="btn btn-primary" style="background-color: #28a745;">Conectar</button>
-					</esp-web-install-button>
+						<button slot="activate" class="btn btn-primary" style="background-color: #28a745;">Conectar</button>
+					  </esp-web-install-button>
 				  </div>
 				  <p>
 					<strong>Instruções:</strong>
@@ -228,50 +228,8 @@
 		  </div>	
     </div>
 
-	<script type="module" src="esp-web-tools/install-button.js?module"></script>
-	<script type="module">
-	  document.getElementById('customInstallButton').addEventListener('click', async (event) => {
-		const files = [];
-		for (let i = 1; i <= 4; i++) {
-		  const binInput = document.getElementById(`bin${i}`);
-		  const offsetInput = document.getElementById(`offset${i}`);
-		  if (binInput.files.length > 0 && offsetInput.value) {
-			files.push({
-			  path: URL.createObjectURL(binInput.files[0]),
-			  offset: offsetInput.value
-			});
-		  }
-		}
-	
-		if (files.length > 0) {
-		  const manifest = {
-			name: "Custom Firmware",
-			builds: [
-			  {
-				chipFamily: "ESP32-S2",
-				parts: files
-			  }
-			]
-		  };
-	
-		  const customInstallButton = document.getElementById('customInstallButton');
-		  customInstallButton.manifest = URL.createObjectURL(new Blob([JSON.stringify(manifest)], { type: 'application/json' }));
-		} else {
-		  alert('Please select at least one binary file and specify its offset.');
-		  event.preventDefault(); // Prevent the default action if no files are selected
-		}
-	  });
-	
-	  window.onload = function() {
-		if (navigator.serial) {
-		  document.getElementById("notSupported").style.display = 'none';
-		  document.getElementById("main").style.display = 'block';
-		} else {
-		  document.getElementById("notSupported").style.display = 'block';
-		  document.getElementById("main").style.display = 'none';
-		}
-	  };
-	</script>
+	<script type="module" src="main.js"></script>
+
 	<div id="notSupported" style="display: none;">
 		<div class="alert alert-warning">
 			<strong>Ops!</strong> Seu navegador não suporta Web Serial 😭. Use o Google Chrome.
@@ -279,7 +237,7 @@
     </div>
 		
 	<nav class="navbar fixed-bottom navbar-light bg-light">		
-		<a class="nav" href="https://franzininho.github.io/docs-franzininho-site/">Copyright © 2024 Franzininho.</a>
+		<a class="nav" href="https://franzininho.github.io/docs-franzininho-site/">Copyright © 2025 Franzininho.</a>
 	</nav>
 	
   <script>
