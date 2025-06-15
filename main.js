@@ -98,8 +98,10 @@ document.getElementById('customInstallButton').addEventListener('click', async (
   
   // Função para criar o HTML dos filtros com botão de filtro expansível
   function createFilterBar(apps) {
-    const categories = Array.from(new Set(apps.map(app => app.category.split('>')[0].trim())));
-    const tags = Array.from(new Set(apps.flatMap(app => app.tags || [])));
+    const categories = ["Plataformas", "Automação", "Exemplos", "Jogos"];
+    const tags = ["exemplos", "jogos", "sensores", "atuadores", "automação", "demo", "fabrica"];
+    const boards = ["Franzininho WiFi", "Franzininho WiFi LAB01"];
+    const socs = ["ESP32-S2", "ESP32-S3"];
     return `
       <div class="row mb-4">
         <div class="col-12 col-md-3 order-md-2 mb-3 mb-md-0">
@@ -120,6 +122,24 @@ document.getElementById('customInstallButton').addEventListener('click', async (
                 <div class="form-check mr-3 mb-1">
                   <input class="form-check-input tag-checkbox" type="checkbox" value="${tag}" id="tag-${tag}">
                   <label class="form-check-label" for="tag-${tag}">${tag}</label>
+                </div>
+              `).join('')}
+            </div>
+            <div class="mb-2 mt-2"><strong>Placas</strong></div>
+            <div class="d-flex flex-wrap mb-2">
+              ${boards.map(board => `
+                <div class="form-check mr-3 mb-1">
+                  <input class="form-check-input board-checkbox" type="checkbox" value="${board}" id="board-${board}">
+                  <label class="form-check-label" for="board-${board}">${board}</label>
+                </div>
+              `).join('')}
+            </div>
+            <div class="mb-2 mt-2"><strong>SoC</strong></div>
+            <div class="d-flex flex-wrap">
+              ${socs.map(soc => `
+                <div class="form-check mr-3 mb-1">
+                  <input class="form-check-input soc-checkbox" type="checkbox" value="${soc}" id="soc-${soc}">
+                  <label class="form-check-label" for="soc-${soc}">${soc}</label>
                 </div>
               `).join('')}
             </div>
@@ -148,6 +168,24 @@ document.getElementById('customInstallButton').addEventListener('click', async (
                 </div>
               `).join('')}
             </div>
+            <div class="mb-2 mt-2"><strong>Placas</strong></div>
+            <div class="d-flex flex-wrap mb-2">
+              ${boards.map(board => `
+                <div class="form-check mr-3 mb-1">
+                  <input class="form-check-input board-checkbox" type="checkbox" value="${board}" id="board-mob-${board}">
+                  <label class="form-check-label" for="board-mob-${board}">${board}</label>
+                </div>
+              `).join('')}
+            </div>
+            <div class="mb-2 mt-2"><strong>SoC</strong></div>
+            <div class="d-flex flex-wrap">
+              ${socs.map(soc => `
+                <div class="form-check mr-3 mb-1">
+                  <input class="form-check-input soc-checkbox" type="checkbox" value="${soc}" id="soc-mob-${soc}">
+                  <label class="form-check-label" for="soc-mob-${soc}">${soc}</label>
+                </div>
+              `).join('')}
+            </div>
             <div class="mt-2 text-right">
               <button id="clearFiltersMobile" class="btn btn-sm btn-link text-secondary" style="text-decoration: underline; font-size: 0.95em;">Limpar filtros</button>
             </div>
@@ -169,18 +207,22 @@ document.getElementById('customInstallButton').addEventListener('click', async (
     let filteredApps = apps;
     let selectedCategories = [];
     let selectedTags = [];
+    let selectedBoards = [];
+    let selectedSocs = [];
   
     // Renderiza filtros apenas uma vez
     filtersContainer.innerHTML = createFilterBar(apps);
     attachFilterEvents();
   
     function applyFilters() {
-      const search = document.getElementById('searchInput').value.toLowerCase();
+      const search = (document.getElementById('searchInput') || document.getElementById('searchInputMobile')).value.toLowerCase();
       filteredApps = apps.filter(app => {
         const matchesSearch = app.name.toLowerCase().includes(search) || app.description.toLowerCase().includes(search) || (app.tags && app.tags.some(t => t.toLowerCase().includes(search)));
-        const matchesCategory = selectedCategories.length === 0 || selectedCategories.includes(app.category.split('>')[0].trim());
+        const matchesCategory = selectedCategories.length === 0 || selectedCategories.includes(app.category);
         const matchesTag = selectedTags.length === 0 || (app.tags && selectedTags.every(tag => app.tags.includes(tag)));
-        return matchesSearch && matchesCategory && matchesTag;
+        const matchesBoard = selectedBoards.length === 0 || (app.boards && selectedBoards.some(board => app.boards.includes(board)));
+        const matchesSoc = selectedSocs.length === 0 || (app.soc && selectedSocs.some(soc => app.soc.includes(soc)));
+        return matchesSearch && matchesCategory && matchesTag && matchesBoard && matchesSoc;
       });
       renderFilteredApps();
     }
@@ -230,6 +272,18 @@ document.getElementById('customInstallButton').addEventListener('click', async (
           applyFilters();
         });
       });
+      document.querySelectorAll('#advancedFilters .board-checkbox').forEach(cb => {
+        cb.addEventListener('change', function() {
+          selectedBoards = Array.from(document.querySelectorAll('#advancedFilters .board-checkbox:checked')).map(c => c.value);
+          applyFilters();
+        });
+      });
+      document.querySelectorAll('#advancedFilters .soc-checkbox').forEach(cb => {
+        cb.addEventListener('change', function() {
+          selectedSocs = Array.from(document.querySelectorAll('#advancedFilters .soc-checkbox:checked')).map(c => c.value);
+          applyFilters();
+        });
+      });
       const clearBtn = document.getElementById('clearFilters');
       if (clearBtn) {
         clearBtn.addEventListener('click', (e) => {
@@ -237,7 +291,9 @@ document.getElementById('customInstallButton').addEventListener('click', async (
           if (searchInput) searchInput.value = '';
           selectedCategories = [];
           selectedTags = [];
-          document.querySelectorAll('#advancedFilters .category-checkbox, #advancedFilters .tag-checkbox').forEach(cb => cb.checked = false);
+          selectedBoards = [];
+          selectedSocs = [];
+          document.querySelectorAll('#advancedFilters .category-checkbox, #advancedFilters .tag-checkbox, #advancedFilters .board-checkbox, #advancedFilters .soc-checkbox').forEach(cb => cb.checked = false);
           applyFilters();
         });
       }
@@ -254,6 +310,18 @@ document.getElementById('customInstallButton').addEventListener('click', async (
           applyFilters();
         });
       });
+      document.querySelectorAll('#advancedFiltersMobile .board-checkbox').forEach(cb => {
+        cb.addEventListener('change', function() {
+          selectedBoards = Array.from(document.querySelectorAll('#advancedFiltersMobile .board-checkbox:checked')).map(c => c.value);
+          applyFilters();
+        });
+      });
+      document.querySelectorAll('#advancedFiltersMobile .soc-checkbox').forEach(cb => {
+        cb.addEventListener('change', function() {
+          selectedSocs = Array.from(document.querySelectorAll('#advancedFiltersMobile .soc-checkbox:checked')).map(c => c.value);
+          applyFilters();
+        });
+      });
       const clearBtnMob = document.getElementById('clearFiltersMobile');
       if (clearBtnMob) {
         clearBtnMob.addEventListener('click', (e) => {
@@ -261,7 +329,9 @@ document.getElementById('customInstallButton').addEventListener('click', async (
           if (searchInputMobile) searchInputMobile.value = '';
           selectedCategories = [];
           selectedTags = [];
-          document.querySelectorAll('#advancedFiltersMobile .category-checkbox, #advancedFiltersMobile .tag-checkbox').forEach(cb => cb.checked = false);
+          selectedBoards = [];
+          selectedSocs = [];
+          document.querySelectorAll('#advancedFiltersMobile .category-checkbox, #advancedFiltersMobile .tag-checkbox, #advancedFiltersMobile .board-checkbox, #advancedFiltersMobile .soc-checkbox').forEach(cb => cb.checked = false);
           applyFilters();
         });
       }

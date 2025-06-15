@@ -235,3 +235,29 @@ footer .footer-icons a:hover {
     font-size: 0.92em;
   }
 }
+
+/* Filtros laterais e mobile */
+#advancedFilters, #advancedFiltersMobile {
+  background: #f8f9fa;
+  border-radius: 12px;
+}
+#advancedFilters .form-check, #advancedFiltersMobile .form-check {
+  min-width: 140px;
+  margin-right: 0.5em;
+  margin-bottom: 0.3em;
+  display: flex;
+  align-items: center;
+}
+#advancedFilters .form-check-label, #advancedFiltersMobile .form-check-label {
+  margin-left: 0.35em;
+  font-size: 1em;
+}
+#advancedFilters .d-flex.flex-wrap, #advancedFiltersMobile .d-flex.flex-wrap {
+  gap: 0.2em 0.5em;
+}
+@media (max-width: 767px) {
+  #advancedFiltersMobile .form-check {
+    min-width: 120px;
+    font-size: 0.97em;
+  }
+}
