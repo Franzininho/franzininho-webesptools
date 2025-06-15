@@ -1,12 +1,12 @@
 {
 	"name": "MicroPython - Wroom",
-	"version": "1.24.1",
+	"version": "1.25.0",
 	"new_install_prompt_erase": true,
 	"builds": [
 	  {
 		"chipFamily": "ESP32-S2",
 		"parts": [
-		  { "path": "ESP32_GENERIC_S2-20241129-v1.24.1.bin", "offset": 4096 }
+		  { "path": "ESP32_GENERIC_S2-20250415-v1.25.0.bin", "offset": 4096 }
 		]
 	  }
 	]

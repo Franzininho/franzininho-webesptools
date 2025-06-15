@@ -1,233 +1,127 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Franzininho WiFi - ESP Web Tools</title>
+  <title>Franzininho WiFi Play Store</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.6.0/font/bootstrap-icons.css" integrity="sha384-7ynz3n3tAGNUYFZD3cWe5PDcE36xj85vyFkawcF6tIwxvIecqKvfwLiaFdizhPpN" crossorigin="anonymous">
-  
-  <!-- Jquery and BootStrap -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.6.0/font/bootstrap-icons.css" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="./css/index.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-  
-  
-  <!-- CSS -->	
-  <link rel="stylesheet" type="text/css" href="./css/index.css">
-  
 </head>
-<body>	
+<body>
+  <nav class="navbar navbar-light mb-3" style="background: #2B7E3D; flex-direction: column; align-items: center;">
+    <a class="navbar-brand mx-auto" href="#" style="display: flex; flex-direction: column; align-items: center; gap: 0.2em;">
+      <img src="./imagens/franzininho_WIFI.png" alt="Franzininho WiFi" style="width:90px; margin-bottom: 0.2em;"> 
+      <span style="color: #fff; font-weight: 700; font-size: 1.2rem; text-align: center; display: flex; flex-direction: column; align-items: center;">
+        <span class="franzininho-highlight" style="color: #fff;">Franzininho WiFi</span>
+        <span class="playstore-sub">Play Store</span>
+      </span>
+    </a>
+  </nav>
 
-	<nav class="navbar bg-light navbar-light">
-	  <!-- Brand/logo -->
-	  <a class="navbar-brand text-success" href="#">
-		<img src="./imagens/logo.svg" alt="logo" style="width:40px;"> Franzininho WiFi - ESP Web Tools
-	  </a>
-	  <!-- Links -->
-	  <ul class="nav justify-content-end">
-                  <li class="nav-item" >
-                    <a class="nav-link active text-success" href="https://docs.franzininho.com.br/docs"><i class="bi bi-book-half"></i>  Documentação</a>
-                  </li>
-                  <li class="nav-item">
-                        <a class="nav-link text-success" href="#"  data-toggle="modal" data-target="#myModal"><i class="bi bi-heart"></i>  Sobre</a>
-                  </li>
-		</ul>
-	</nav>	
-	
-	<!-- The Modal -->
-	<div class="modal" id="myModal">
+  <!-- Modal Custom Firmware Tool -->
+	<div class="modal" id="customToolModal">
 		<div class="modal-dialog">
 		  <div class="modal-content">
 		  
 			<!-- Modal Header -->
 			<div class="modal-header">
-			  <h4 class="modal-title">Franzininho WiFi - ESP Web Tools</h4>
+			  <h4 class="modal-title">Gravar Custom Firmware</h4>
 			  <button type="button" class="close" data-dismiss="modal">&times;</button>
 			</div>
 			
 			<!-- Modal body -->
 			<div class="modal-body">
-			  <h4>Desenvolvedores:</h4>
-			  <ul>
-				<li>Andre Mesquita</li>
-				<li>Ewerton Leandro de Sousa</li>
-				<li>Fabio Souza</li>
-			  </ul>
-			  <h4>Baseado:</h4>
-			  <ul>
-				<li>ESPHome - Nabu Casa</li>
-				<li>ESP Web Tools</li>
-				<li>ESP Web Flasher</li>
-				<li>Adafruit WebSerial ESPTool - Melissa LeBlanc-Williams</li>
-			  </ul>
-			</div>
-			
-			<!-- Modal footer -->
-			<div class="modal-footer">
-			  <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+			  <form id="custom-firmware-form">
+				<div class="form-group row">
+				  <div class="col-md-6">
+					<label for="bin1">Binary 1:</label>
+					<input type="file" id="bin1" name="bin1" class="form-control">
+				  </div>
+				  <div class="col-md-6">
+					<label for="offset1">Offset 1:</label>
+					<input type="text" id="offset1" name="offset1" class="form-control" placeholder="0x1000">
+				  </div>
+				</div>
+				<div class="form-group row">
+				  <div class="col-md-6">
+					<label for="bin2">Binary 2:</label>
+					<input type="file" id="bin2" name="bin2" class="form-control">
+				  </div>
+				  <div class="col-md-6">
+					<label for="offset2">Offset 2:</label>
+					<input type="text" id="offset2" name="offset2" class="form-control" placeholder="0x8000">
+				  </div>
+				</div>
+				<div class="form-group row">
+				  <div class="col-md-6">
+					<label for="bin3">Binary 3:</label>
+					<input type="file" id="bin3" name="bin3" class="form-control">
+				  </div>
+				  <div class="col-md-6">
+					<label for="offset3">Offset 3:</label>
+					<input type="text" id="offset3" name="offset3" class="form-control" placeholder="0xe000">
+				  </div>
+				</div>
+				<div class="form-group row">
+				  <div class="col-md-6">
+					<label for="bin4">Binary 4:</label>
+					<input type="file" id="bin4" name="bin4" class="form-control">
+				  </div>
+				  <div class="col-md-6">
+					<label for="offset4">Offset 4:</label>
+					<input type="text" id="offset4" name="offset4" class="form-control" placeholder="0x10000">
+				  </div>
+				</div>
+			  </form>
+			  <div class="lines-body">	
+				<esp-web-install-button id="customInstallButton">
+					<button slot="activate" class="btn btn-primary" style="background-color: #28a745;">Conectar</button>
+				  </esp-web-install-button>
+			  </div>
+			  <p>
+				<strong>Instruções:</strong>
+				<ol>
+				  <li>Conecte a sua placa Franzininho a uma das portas USB de seu computador;</li>
+				  <li>Coloque sua placa em modo DFU:
+					<ul>
+					  <li>Pressione e segure a tecla BOOT.</li>
+					  <li>Pressione rapidamente e solte a tecla RESET.</li>
+					  <li>Solte a tecla BOOT.</li>
+					</ul>
+				  </li>
+				  <li>Clique no botão Conectar logo abaixo.</li>
+				</ol>
+			  </p>
 			</div>
 			
 		  </div>
 		</div>
 	</div>
 	
-	
-	<br/>
-
-	
-	<div class="container-fluid" style="height: 500px; display: none;" id="main">
-
-		<p>
-			Ferramenta para gravação dos firmwares para Franzininho WiFi.
-			<br></br>
-			Selecione qual firmware deseja instalar e siga as instruções.
-			<br></br>
-		</p>
-	
-		<!-- Nav pills -->
-                <ul class="nav nav-pills">
-                  <li class="nav-item">
-                        <a class="nav-link" data-toggle="pill" href="#circuitpython"><img src="./imagens/circuitpython.png" style="border:none;"> CircuitPython</a>
-                  </li>
-		  <li class="nav-item">
-			<a class="nav-link " data-toggle="pill" href="#micropython"><img src="./imagens/micropython.png" style="border:none;">   MicroPython</a>
-		  </li>
-		  <li class="nav-item">
-			<a class="nav-link " data-toggle="pill" href="#custom"><i class="bi bi-search"></i>  Seu firmware...</a>
-		  </li>
-		</ul>
-		
-		<br/>
-
-		<!-- Tab panes -->
-		<div class="tab-content">		  
-		  <!-- CircuitPython -->	
-		  <div class="tab-pane container-fluid active" id="circuitpython">
-			<div class="row">
-				<div class="col-sm-12 receiver" style="margin-top:1%;">
-				  <div class="lines-header">
-					<span class="badge badge-warning">CircuitPython v9.2.1</span>
-					<br/><br/>
-					<p>1º - Conecte a sua placa Franzininho a uma das portas USB de seu computador;</p>
-					<p>2º - Coloque sua placa em modo DFU:</p>
-					<ol>
-						<li>Pressione e segure a tecla BOOT.</li>
-						<li>Pressione rapidamente e solte a tecla RESET.</li>
-						<li>Solte a tecla BOOT.</li>
-					  </ol>
-					<p>3º - Clique no botão Conectar logo abaixo.</p>	
-				  </div>				  
-				  <div class="lines-body">					
-					<script type="module" src="esp-web-tools/install-button.js?module"></script>
-					<esp-web-install-button id="installButton" manifest="firmwares/circuitpython/manifestWroom.json">
-						<button slot="activate" class="btn btn-primary" style="background-color: #28a745;">Conectar</button>
-					</esp-web-install-button>
-				  </div>
-				</div>	
-			</div>
-		  </div>
-		  <!-- MicroPython -->	
-		  <div class="tab-pane container-fluid" id="micropython">
-			<div class="row">
-				<div class="col-sm-12 receiver" style="margin-top:1%;">
-				  <div class="lines-header">
-				    <span class="badge badge-warning">MicroPython v1.24.1</span>
-					<br/><br/>
-					<p>O MicroPython é um interpretador Python de código aberto desenvolvido para uso em microcontroladores.</p>
-					<p>1º - Conecte a sua placa Franzininho a uma das portas USB de seu computador;</p>
-					<p>2º - Coloque sua placa em modo DFU:</p>
-					<ol>
-						<li>Pressione e segure a tecla BOOT.</li>
-						<li>Pressione rapidamente e solte a tecla RESET.</li>
-						<li>Solte a tecla BOOT.</li>
-					  </ol>
-					<p>3º - Clique no botão Conectar logo abaixo.</p>					
-				  </div>
-				  <div class="lines-body">					
-					<script type="module" src="esp-web-tools/install-button.js?module"></script>
-					<esp-web-install-button id="installButton" manifest="firmwares/micropython/manifestWroom.json">
-						<button slot="activate" class="btn btn-primary" style="background-color: #28a745;">Conectar</button>
-					</esp-web-install-button>
-				  </div>
-				</div>	
-			</div>
-		  </div>
-		 <!-- Custom -->	
-		 <div class="tab-pane container-fluid" id="custom">
-			<div class="row">
-			  <div class="col-sm-12 receiver" style="margin-top:1%;">
-				<div class="lines-header"><span class="badge badge-warning">Seu Firmware...</span></div>
-				<div class="lines-body">
-				  <form id="custom-firmware-form">
-					<div class="form-group row">
-					  <div class="col-md-6">
-						<label for="bin1">Binary 1:</label>
-						<input type="file" id="bin1" name="bin1" class="form-control">
-					  </div>
-					  <div class="col-md-6">
-						<label for="offset1">Offset 1:</label>
-						<input type="text" id="offset1" name="offset1" class="form-control" placeholder="0x1000">
-					  </div>
-					</div>
-					<div class="form-group row">
-					  <div class="col-md-6">
-						<label for="bin2">Binary 2:</label>
-						<input type="file" id="bin2" name="bin2" class="form-control">
-					  </div>
-					  <div class="col-md-6">
-						<label for="offset2">Offset 2:</label>
-						<input type="text" id="offset2" name="offset2" class="form-control" placeholder="0x8000">
-					  </div>
-					</div>
-					<div class="form-group row">
-					  <div class="col-md-6">
-						<label for="bin3">Binary 3:</label>
-						<input type="file" id="bin3" name="bin3" class="form-control">
-					  </div>
-					  <div class="col-md-6">
-						<label for="offset3">Offset 3:</label>
-						<input type="text" id="offset3" name="offset3" class="form-control" placeholder="0xe000">
-					  </div>
-					</div>
-					<div class="form-group row">
-					  <div class="col-md-6">
-						<label for="bin4">Binary 4:</label>
-						<input type="file" id="bin4" name="bin4" class="form-control">
-					  </div>
-					  <div class="col-md-6">
-						<label for="offset4">Offset 4:</label>
-						<input type="text" id="offset4" name="offset4" class="form-control" placeholder="0x10000">
-					  </div>
-					</div>
-				  </form>
-				  <div class="lines-body">	
-					<esp-web-install-button id="customInstallButton">
-						<button slot="activate" class="btn btn-primary" style="background-color: #28a745;">Conectar</button>
-					  </esp-web-install-button>
-				  </div>
-				  <p>
-					<strong>Instruções:</strong>
-					<ol>
-					  <li>Conecte a sua placa Franzininho a uma das portas USB de seu computador;</li>
-					  <li>Coloque sua placa em modo DFU:
-						<ul>
-						  <li>Pressione e segure a tecla BOOT.</li>
-						  <li>Pressione rapidamente e solte a tecla RESET.</li>
-						  <li>Solte a tecla BOOT.</li>
-						</ul>
-					  </li>
-					  <li>Clique no botão Conectar logo abaixo.</li>
-					</ol>
-				  </p>
-				</div>
-			  </div>	
-			</div>
-		  </div>		  
-		  </div>	
+	<!-- App Store dinâmica -->
+	<div class="container mb-4">
+    <div class="row">
+      <div class="col-12 mb-2" style="text-align: center;">
+        <button id="custom-above-btn" class="btn btn-outline-success btn-sm" style="font-weight:600; letter-spacing:0.02em;">
+          <svg xmlns="http://www.w3.org/2000/svg" width="1.1em" height="1.1em" fill="currentColor" viewBox="0 0 16 16" style="margin-right: 6px; vertical-align: -0.15em;">
+            <path d="M.5 9.9a.5.5 0 0 1 .5.5V13a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V10.4a.5.5 0 0 1 1 0V13a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V10.4a.5.5 0 0 1 .5-.5z"/>
+            <path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V2.5a.5.5 0 0 0-1 0v7.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3z"/>
+          </svg>
+          Gravar Custom Firmware
+        </button>
+      </div>
+      <div class="col-12">
+        <div id="app-store-filters"></div>
+        <div id="app-store-list"></div>
+      </div>
     </div>
+  </div>
 
+	<script type="module" src="esp-web-tools/install-button.js"></script>
 	<script type="module" src="main.js"></script>
 
 	<div id="notSupported" style="display: none;">
@@ -236,21 +130,60 @@
 		  </div>
     </div>
 		
-	<nav class="navbar fixed-bottom navbar-light bg-light">		
-		<a class="nav" href="https://franzininho.github.io/docs-franzininho-site/">Copyright © 2025 Franzininho.</a>
-	</nav>
-	
+	<footer class="bg-light text-center text-secondary py-3 mt-4" style="background: #2B7E3D !important; color: #fff !important;">
+      <div class="footer-content">
+        <div class="footer-icons">
+          <a href="https://docs.franzininho.com.br/docs" target="_blank" title="Documentação"><i class="bi bi-book-half"></i></a>
+          <a href="#" data-toggle="modal" data-target="#myModal" title="Sobre"><i class="bi bi-info-circle"></i></a>
+          <a href="https://github.com/Franzininho" target="_blank" title="GitHub"><i class="bi bi-github"></i></a>
+          <a href="https://franzininho.com.br" target="_blank" title="Site Franzininho"><i class="bi bi-globe2"></i></a>
+        </div>
+        <div class="mt-2">
+          <img src="./imagens/logo-branco.svg" alt="logo Franzininho" style="width:32px; margin-bottom: 0.3em;">
+          <span style="color: #fff;">&copy; 2025 Franzininho. Todos os direitos reservados.</span>
+        </div>
+      </div>
+    </footer>
+
+  <!-- Modal Sobre -->
+  <div class="modal" id="myModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">Franzininho WiFi Play Store</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        <div class="modal-body">
+          <h4>Desenvolvedores:</h4>
+          <ul>
+            <li>Ewerton Leandro de Sousa</li>
+            <li>Fabio Souza</li>
+          </ul>
+          <h4>Baseado:</h4>
+          <ul>
+            <li>ESPHome - Nabu Casa</li>
+            <li>ESP Web Tools</li>
+            <li>ESP Web Flasher</li>
+            <li>Adafruit WebSerial ESPTool - Melissa LeBlanc-Williams</li>
+          </ul>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-dismiss="modal">Fechar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <script>
-	  			
-	if(navigator.serial){
-		document.getElementById("notSupported").style.display = 'none';
-		document.getElementById("main").style.display = 'block';
-	} else {
-		document.getElementById("notSupported").style.display = 'block';
-		document.getElementById("main").style.display = 'none';
-	}
-	
-	
+    if(navigator.serial){
+      document.getElementById("notSupported").style.display = 'none';
+      document.getElementById("app-store-filters").style.display = 'block';
+      document.getElementById("app-store-list").style.display = 'block';
+    } else {
+      document.getElementById("notSupported").style.display = 'block';
+      document.getElementById("app-store-filters").style.display = 'none';
+      document.getElementById("app-store-list").style.display = 'none';
+    }
   </script>
 
 </body>

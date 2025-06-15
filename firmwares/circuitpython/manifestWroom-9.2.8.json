@@ -1,12 +1,12 @@
 {
 	"name": "CircuitPython - Wroom",
-	"version": "9.2.1",
+	"version": "9.2.8",
 	"new_install_prompt_erase": true,
 	"builds": [
 	  {
 		"chipFamily": "ESP32-S2",
 		"parts": [
-		  { "path": "adafruit-circuitpython-franzininho_wifi_wroom-pt_BR-9.2.1.bin", "offset": 0 }
+		  { "path": "adafruit-circuitpython-franzininho_wifi_wroom-pt_BR-9.2.8.bin", "offset": 0 }
 		]
 	  }
 	]
