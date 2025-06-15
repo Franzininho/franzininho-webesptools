@@ -22,6 +22,12 @@
     </a>
   </nav>
 
+  <div id="notSupported" style="display: none; margin-bottom: 1rem;">
+    <div class="alert alert-warning" style="margin-bottom: 0;">
+      <strong>Ops!</strong> Seu navegador não suporta Web Serial 😭. Use o Google Chrome.
+    </div>
+  </div>
+
   <!-- Modal Custom Firmware Tool -->
 	<div class="modal" id="customToolModal">
 		<div class="modal-dialog">
@@ -124,12 +130,6 @@
 	<script type="module" src="esp-web-tools/install-button.js"></script>
 	<script type="module" src="main.js"></script>
 
-	<div id="notSupported" style="display: none;">
-		<div class="alert alert-warning">
-			<strong>Ops!</strong> Seu navegador não suporta Web Serial 😭. Use o Google Chrome.
-		  </div>
-    </div>
-		
 	<footer class="bg-light text-center text-secondary py-3 mt-4" style="background: #2B7E3D !important; color: #fff !important;">
       <div class="footer-content">
         <div class="footer-icons">
@@ -175,14 +175,15 @@
   </div>
 
   <script>
+    // Exibe SEMPRE os grids e filtros, apenas mostra/oculta o alerta
     if(navigator.serial){
       document.getElementById("notSupported").style.display = 'none';
       document.getElementById("app-store-filters").style.display = 'block';
       document.getElementById("app-store-list").style.display = 'block';
     } else {
       document.getElementById("notSupported").style.display = 'block';
-      document.getElementById("app-store-filters").style.display = 'none';
-      document.getElementById("app-store-list").style.display = 'none';
+      document.getElementById("app-store-filters").style.display = 'block';
+      document.getElementById("app-store-list").style.display = 'block';
     }
   </script>
 
