@@ -1,0 +1,32 @@
+{
+  "name": "Template Firmware",
+  "version": "1.0.0",
+  "new_install_prompt_erase": true,
+  "builds": [
+    {
+      "chipFamily": "ESP32-S2",
+      "parts": [
+        { "path": "firmware-template.bin", "offset": 4096 }
+      ]
+    }
+  ]
+}
+
+/*
+Exemplo para múltiplos binários (remova este bloco de comentário ao usar):
+
+{
+  "name": "ESP-IDF - Wroom",
+  "new_install_prompt_erase": true,
+  "builds": [
+    {
+      "chipFamily": "ESP32-S2",
+      "parts": [
+        { "path": "bootloaderWroom.bin", "offset": 4096 },
+        { "path": "partition-tableWroom.bin", "offset": 32768 },
+        { "path": "hello-worldWroom.bin", "offset": 65536 }
+      ]
+    }
+  ]
+}
+*/
