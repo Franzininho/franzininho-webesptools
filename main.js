@@ -367,3 +367,10 @@ document.getElementById('customInstallButton').addEventListener('click', async (
     renderAppStore();
   });
   // Ao adicionar novo firmware, coloque a imagem do card na mesma pasta do firmware e aponte o campo 'image' no apps.json para esse caminho.
+  // Botão acima dos cards para abrir modal de gravação custom
+  const customAboveBtn = document.getElementById('custom-above-btn');
+  if (customAboveBtn) {
+    customAboveBtn.addEventListener('click', function() {
+      $('#customToolModal').modal('show');
+    });
+  }

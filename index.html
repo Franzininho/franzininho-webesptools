@@ -104,8 +104,21 @@
 	
 	<!-- App Store dinâmica -->
 	<div class="container mb-4">
-    <div id="app-store-filters"></div>
-    <div id="app-store-list"></div>
+    <div class="row">
+      <div class="col-12 mb-2" style="text-align: center;">
+        <button id="custom-above-btn" class="btn btn-outline-success btn-sm" style="font-weight:600; letter-spacing:0.02em;">
+          <svg xmlns="http://www.w3.org/2000/svg" width="1.1em" height="1.1em" fill="currentColor" viewBox="0 0 16 16" style="margin-right: 6px; vertical-align: -0.15em;">
+            <path d="M.5 9.9a.5.5 0 0 1 .5.5V13a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V10.4a.5.5 0 0 1 1 0V13a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V10.4a.5.5 0 0 1 .5-.5z"/>
+            <path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V2.5a.5.5 0 0 0-1 0v7.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3z"/>
+          </svg>
+          Gravar Custom Firmware
+        </button>
+      </div>
+      <div class="col-12">
+        <div id="app-store-filters"></div>
+        <div id="app-store-list"></div>
+      </div>
+    </div>
   </div>
 
 	<script type="module" src="esp-web-tools/install-button.js"></script>
@@ -120,8 +133,7 @@
 	<footer class="bg-light text-center text-secondary py-3 mt-4" style="background: #2B7E3D !important; color: #fff !important;">
       <div class="footer-content">
         <div class="footer-icons">
-          <a href="https://docs.franzininho.com.br/docs" title="Documentação"><i class="bi bi-book-half"></i></a>
-          <a href="#" data-toggle="modal" data-target="#customToolModal" title="Ferramenta Custom Firmware"><i class="bi bi-tools"></i></a>
+          <a href="https://docs.franzininho.com.br/docs" target="_blank" title="Documentação"><i class="bi bi-book-half"></i></a>
           <a href="#" data-toggle="modal" data-target="#myModal" title="Sobre"><i class="bi bi-info-circle"></i></a>
           <a href="https://github.com/Franzininho" target="_blank" title="GitHub"><i class="bi bi-github"></i></a>
           <a href="https://franzininho.com.br" target="_blank" title="Site Franzininho"><i class="bi bi-globe2"></i></a>
@@ -144,7 +156,6 @@
         <div class="modal-body">
           <h4>Desenvolvedores:</h4>
           <ul>
-            <li>Andre Mesquita</li>
             <li>Ewerton Leandro de Sousa</li>
             <li>Fabio Souza</li>
           </ul>
