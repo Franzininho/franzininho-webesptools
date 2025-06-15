@@ -28,5 +28,19 @@
       { "label": "9.2.1", "manifest": "firmwares/circuitpython/manifestWroom-9.2.1.json" },
       { "label": "9.2.8", "manifest": "firmwares/circuitpython/manifestWroom-9.2.8.json" }
     ]
+  },
+  {
+    "id": "lab01-teste-fabrica",
+    "name": "Franzininho WiFI LAB01 - Fábrica",
+    "description": "Firmware de teste de fábrica para Franzininho WiFi LAB01.<br> - V1.0.1: Buzzer com oscilador.",
+    "category": "Exemplos",
+    "tags": ["demo", "fabrica"],
+    "boards": [ "Franzininho WiFi LAB01"],
+    "soc": ["ESP32-S2"],
+    "image": "firmwares/lab01-teste-fabrica/lab01-teste-fabrica.png",
+    "versions": [
+      { "label": "1.0.0", "manifest": "firmwares/lab01-teste-fabrica/1.0.0/manifest-1.0.0.json" },
+      { "label": "1.0.1", "manifest": "firmwares/lab01-teste-fabrica/1.0.1/manifest-1.0.1.json" }
+    ]
   }
 ]
