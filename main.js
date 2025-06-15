@@ -236,12 +236,14 @@ document.getElementById('customInstallButton').addEventListener('click', async (
   
     function renderFilteredApps() {
       const grouped = groupByCategory(filteredApps);
-      let html = '';
+      let allCards = [];
       Object.keys(grouped).forEach(mainCat => {
         Object.keys(grouped[mainCat]).forEach(subCat => {
-          html += `<div class="row">${grouped[mainCat][subCat].map(app => createAppCard(app)).join('')}</div>`;
+          allCards = allCards.concat(grouped[mainCat][subCat]);
         });
       });
+      let html = '';
+      html += `<div class="row">${allCards.map(app => createAppCard(app)).join('')}</div>`;
       // Botão de ajuda para instruções
       const helpBtn = `<button id='showInstructions' class='btn btn-outline-info mb-3'><i class='bi bi-info-circle'></i> Como gravar na Franzininho WiFi</button>`;
       // Instruções ocultas
