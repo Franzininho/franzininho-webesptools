@@ -79,6 +79,12 @@ document.getElementById('customInstallButton').addEventListener('click', async (
       versionOptions = app.versions.map((v, idx) => `<option value="${v.manifest}"${idx === app.versions.length - 1 ? ' selected' : ''}>${v.label}</option>`).join('');
       defaultManifest = app.versions[app.versions.length - 1].manifest;
     }
+    // Badges para categoria, tags, boards e soc
+    const categoryBadge = app.category ? `<span class="badge badge-pill badge-primary mr-1 mb-1">${app.category}</span>` : '';
+    const tagBadges = app.tags ? app.tags.map(tag => `<span class="badge badge-pill badge-info mr-1 mb-1">${tag}</span>`).join('') : '';
+    const boardBadges = app.boards ? app.boards.map(board => `<span class="badge badge-pill badge-success mr-1 mb-1">${board}</span>`).join('') : '';
+    const socBadges = app.soc ? app.soc.map(soc => `<span class="badge badge-pill badge-warning text-dark mr-1 mb-1">${soc}</span>`).join('') : '';
+
     return `
       <div class="col-md-4 mb-4">
         <div class="card h-100 shadow-sm border-success">
@@ -86,6 +92,7 @@ document.getElementById('customInstallButton').addEventListener('click', async (
           <div class="card-body">
             <h5 class="card-title font-weight-bold text-success">${app.name}</h5>
             ${versionOptions ? `<select class="form-control mb-2 version-select" data-app-id="${app.id}">${versionOptions}</select>` : ''}
+            <div class="mb-2">${categoryBadge}${tagBadges}${boardBadges}${socBadges}</div>
             <p class="card-text">${app.description}</p>
           </div>
           <div class="card-footer bg-transparent border-top-0">
@@ -99,7 +106,7 @@ document.getElementById('customInstallButton').addEventListener('click', async (
   // Função para criar o HTML dos filtros com botão de filtro expansível
   function createFilterBar(apps) {
     const categories = ["Plataformas", "Automação", "Exemplos", "Jogos"];
-    const tags = ["exemplos", "jogos", "sensores", "atuadores", "automação", "demo", "fabrica"];
+    const tags = ["sensores", "atuadores", "automação", "demo", "fabrica"];
     const boards = ["Franzininho WiFi", "Franzininho WiFi LAB01"];
     const socs = ["ESP32-S2", "ESP32-S3"];
     return `

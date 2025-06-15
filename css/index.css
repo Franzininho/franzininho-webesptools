@@ -122,6 +122,12 @@ body {
   border-radius: 8px;
   padding: 0.5em 0.8em;
 }
+.badge.badge-pill {
+  font-size: 0.85em;
+  padding: 0.35em 0.7em;
+  border-radius: 10px;
+  font-weight: 500;
+}
 #app-store-filters {
   background: #fff;
   border-radius: 14px;

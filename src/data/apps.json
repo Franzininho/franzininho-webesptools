@@ -4,8 +4,8 @@
     "name": "MicroPython",
     "description": "Firmware MicroPython para Franzininho WiFi.",
     "category": "Plataformas",
-    "tags": ["firmware", "interprete", "python"],
-    "boards": ["Franzininho WiFi"],
+    "tags": [ "python"],
+    "boards": ["Franzininho WiFi", "Franzininho WiFi LAB01"],
     "soc": ["ESP32-S2"],
     "image": "firmwares/micropython/micropython.png",
     "versions": [
@@ -18,9 +18,9 @@
     "name": "CircuitPython",
     "description": "Firmware CircuitPython para Franzininho WiFi.",
     "category": "Plataformas",
-    "tags": ["firmware", "interprete", "python"],
+    "tags": ["python"],
     "boards": ["Franzininho WiFi", "Franzininho WiFi LAB01"],
-    "soc": ["ESP32-S2", "ESP32-S3"],
+    "soc": ["ESP32-S2"],
     "image": "firmwares/circuitpython/circuitpython.png",
     "versions": [
       { "label": "7.3.1", "manifest": "firmwares/circuitpython/manifestWroom-7.3.1.json" },
