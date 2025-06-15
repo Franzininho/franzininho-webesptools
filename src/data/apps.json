@@ -42,5 +42,18 @@
       { "label": "1.0.0", "manifest": "firmwares/lab01-teste-fabrica/1.0.0/manifest-1.0.0.json" },
       { "label": "1.0.1", "manifest": "firmwares/lab01-teste-fabrica/1.0.1/manifest-1.0.1.json" }
     ]
+  }, 
+  {
+    "id": "snake-game",
+    "name": "Snake Game",
+    "description": "Jogo Snake para Franzininho WiFi LAB01",
+    "category": "Jogos",
+    "tags": ["demo"],
+    "boards": ["Franzininho WiFi LAB01"],
+    "soc": ["ESP32-S2"],
+    "image": "firmwares/snake-game/snake-game.png",
+    "versions": [
+      { "label": "1.0.0", "manifest": "firmwares/snake-game/1.0.0/manifest-1.0.0.json" }
+    ]
   }
 ]
