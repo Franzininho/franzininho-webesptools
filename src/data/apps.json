@@ -9,6 +9,7 @@
     "soc": ["ESP32-S2"],
     "image": "firmwares/micropython/micropython.png",
     "url": "https://micropython.org/",
+    "author": "Equipe MicroPython",
     "versions": [
       { "label": "1.24.1", "manifest": "firmwares/micropython/manifestWroom-1.24.1.json" },
       { "label": "1.25.0", "manifest": "firmwares/micropython/manifestWroom-1.25.0.json" }
@@ -24,6 +25,7 @@
     "soc": ["ESP32-S2"],
     "image": "firmwares/circuitpython/circuitpython.png",
     "url": "https://circuitpython.org/",
+    "author": "Adafruit",
     "versions": [
       { "label": "7.3.1", "manifest": "firmwares/circuitpython/manifestWroom-7.3.1.json" },
       { "label": "9.0.5", "manifest": "firmwares/circuitpython/manifestWroom-9.0.5.json" },
@@ -41,6 +43,7 @@
     "soc": ["ESP32-S2"],
     "image": "firmwares/lab01-teste-fabrica/lab01-teste-fabrica.png",
     "url": "https://github.com/Franzininho/Franzininho-WiFI-LAB01-Arduino/blob/main/Franzininho-WiFi-LAB01-TEST/Franzininho-WiFi-LAB01-TEST.ino",
+    "author": "Fabio Souza",
     "versions": [
       { "label": "1.0.0", "manifest": "firmwares/lab01-teste-fabrica/1.0.0/manifest-1.0.0.json" },
       { "label": "1.0.1", "manifest": "firmwares/lab01-teste-fabrica/1.0.1/manifest-1.0.1.json" }
@@ -56,6 +59,7 @@
     "soc": ["ESP32-S2"],
     "image": "firmwares/snake-game/snake-game.png",
     "url": "https://github.com/Franzininho/Franzininho-WiFI-LAB01-Arduino/blob/main/snake_game/snake_game.ino",
+    "author": "Fabio Souza",
     "versions": [
       { "label": "1.0.0", "manifest": "firmwares/snake-game/1.0.0/manifest-1.0.0.json" }
     ]
@@ -70,6 +74,7 @@
     "soc": ["ESP32-S2"],
     "image": "firmwares/t-rex-game/t-rex-game.png",
     "url": "https://github.com/Franzininho/Franzininho-WiFI-LAB01-Arduino/blob/main/t-rex_game/t-rex_game.ino",
+    "author": "Fabio Souza",
     "versions": [
       { "label": "1.0.0", "manifest": "firmwares/t-rex-game/1.0.0/manifest-1.0.0.json" }
     ]
