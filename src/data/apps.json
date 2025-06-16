@@ -55,5 +55,18 @@
     "versions": [
       { "label": "1.0.0", "manifest": "firmwares/snake-game/1.0.0/manifest-1.0.0.json" }
     ]
+  },
+  {
+    "id": "t-rex-game",
+    "name": "T-Rex Game",
+    "description": "Jogo T-Rex para Franzininho WiFi LAB01",
+    "category": "Jogos",
+    "tags": ["demo"],
+    "boards": ["Franzininho WiFi LAB01"],
+    "soc": ["ESP32-S2"],
+    "image": "firmwares/t-rex-game/t-rex-game.png",
+    "versions": [
+      { "label": "1.0.0", "manifest": "firmwares/t-rex-game/1.0.0/manifest-1.0.0.json" }
+    ]
   }
 ]
