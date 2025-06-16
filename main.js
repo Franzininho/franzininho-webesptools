@@ -84,6 +84,8 @@ document.getElementById('customInstallButton').addEventListener('click', async (
     const tagBadges = app.tags ? app.tags.map(tag => `<span class="badge badge-pill badge-info mr-1 mb-1">${tag}</span>`).join('') : '';
     const boardBadges = app.boards ? app.boards.map(board => `<span class="badge badge-pill badge-success mr-1 mb-1">${board}</span>`).join('') : '';
     const socBadges = app.soc ? app.soc.map(soc => `<span class="badge badge-pill badge-warning text-dark mr-1 mb-1">${soc}</span>`).join('') : '';
+    // Botão +info se houver url
+    const infoBtn = app.url ? `<a href="${app.url}" target="_blank" class="btn btn-link p-0 ml-0 mb-2 d-inline-block" style="font-size:0.97em;"><i class="bi bi-info-circle"></i> +info</a>` : '';
 
     return `
       <div class="col-md-4 mb-4">
@@ -93,9 +95,10 @@ document.getElementById('customInstallButton').addEventListener('click', async (
             <h5 class="card-title font-weight-bold text-success">${app.name}</h5>
             ${versionOptions ? `<select class="form-control mb-2 version-select" data-app-id="${app.id}">${versionOptions}</select>` : ''}
             <div class="mb-2">${categoryBadge}${tagBadges}${boardBadges}${socBadges}</div>
+            ${infoBtn}
             <p class="card-text">${app.description}</p>
           </div>
-          <div class="card-footer bg-transparent border-top-0">
+          <div class="card-footer bg-transparent border-top-0 d-flex justify-content-between align-items-center">
             ${defaultManifest ? `<esp-web-install-button class="install-btn" manifest="${defaultManifest}"><button slot="activate" class="btn btn-success w-100">Gravar na placa</button></esp-web-install-button>` : '<span class="text-muted">Em breve</span>'}
           </div>
         </div>
