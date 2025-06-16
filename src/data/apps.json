@@ -36,7 +36,7 @@
   {
     "id": "lab01-teste-fabrica",
     "name": "Franzininho WiFI LAB01 - Fábrica",
-    "description": "Firmware de teste de fábrica para Franzininho WiFi LAB01.<br> - V1.0.1: Buzzer sem oscilador.",
+    "description": "Firmware de teste de fábrica para Franzininho WiFi LAB01. Este firmware é utilizado para verificar o funcionamento do hardware e dos componentes do dispositivo.",
     "category": "Exemplos",
     "tags": ["demo", "fabrica"],
     "boards": [ "Franzininho WiFi LAB01"],
