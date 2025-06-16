@@ -32,7 +32,7 @@
   {
     "id": "lab01-teste-fabrica",
     "name": "Franzininho WiFI LAB01 - Fábrica",
-    "description": "Firmware de teste de fábrica para Franzininho WiFi LAB01.<br> - V1.0.1: Buzzer com oscilador.",
+    "description": "Firmware de teste de fábrica para Franzininho WiFi LAB01.<br> - V1.0.1: Buzzer sem oscilador.",
     "category": "Exemplos",
     "tags": ["demo", "fabrica"],
     "boards": [ "Franzininho WiFi LAB01"],
