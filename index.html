@@ -175,16 +175,30 @@
   </div>
 
   <script>
-    // Exibe SEMPRE os grids e filtros, apenas mostra/oculta o alerta
-    if(navigator.serial){
-      document.getElementById("notSupported").style.display = 'none';
-      document.getElementById("app-store-filters").style.display = 'block';
-      document.getElementById("app-store-list").style.display = 'block';
-    } else {
-      document.getElementById("notSupported").style.display = 'block';
+    // Detecção aprimorada de suporte ao Web Serial, incluindo contexto seguro e permissões
+    async function checkWebSerialSupport() {
+      let supported = false;
+      if ('serial' in navigator && typeof navigator.serial.getPorts === 'function') {
+        // Precisa estar em contexto seguro (https)
+        if (window.isSecureContext) {
+          try {
+            // Tenta acessar getPorts (pode lançar em browsers sem permissão)
+            await navigator.serial.getPorts();
+            supported = true;
+          } catch (e) {
+            supported = true; // Mesmo se der erro, a API existe
+          }
+        }
+      }
+      if (supported) {
+        document.getElementById("notSupported").style.display = 'none';
+      } else {
+        document.getElementById("notSupported").style.display = 'block';
+      }
       document.getElementById("app-store-filters").style.display = 'block';
       document.getElementById("app-store-list").style.display = 'block';
     }
+    checkWebSerialSupport();
   </script>
 
 </body>
