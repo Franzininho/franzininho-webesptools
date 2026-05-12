@@ -12,18 +12,22 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </head>
 <body>
-  <nav class="navbar navbar-light mb-3" style="background: #2B7E3D; flex-direction: column; align-items: center;">
+  <nav class="navbar navbar-light mb-3" style="background: #2B7E3D; flex-direction: column; align-items: center; position: relative;">
     <a class="navbar-brand mx-auto" href="#" style="display: flex; flex-direction: column; align-items: center; gap: 0.2em;">
-      <img src="./imagens/franzininho_WIFI.png" alt="Franzininho WiFi" style="width:90px; margin-bottom: 0.2em;"> 
+      <img src="./imagens/franzininho_WIFI.png" alt="Franzininho WiFi" style="width:90px; margin-bottom: 0.2em;">
       <span style="color: #fff; font-weight: 700; font-size: 1.2rem; text-align: center; display: flex; flex-direction: column; align-items: center;">
         <span class="franzininho-highlight" style="color: #fff;">Franzininho WiFi</span>
         <span class="playstore-sub">Apps Store</span>
       </span>
     </a>
+    <div style="position: absolute; right: 1rem; top: 50%; transform: translateY(-50%); display: flex; gap: 4px;">
+      <button id="lang-pt" class="btn btn-sm btn-light">PT</button>
+      <button id="lang-en" class="btn btn-sm btn-outline-light">EN</button>
+    </div>
   </nav>
 
   <div id="notSupported" style="display: none; margin-bottom: 1rem;">
-    <div class="alert alert-warning" style="margin-bottom: 0;">
+    <div class="alert alert-warning" style="margin-bottom: 0;" data-i18n-html="alert.noSerial">
       <strong>Ops!</strong> Seu navegador não suporta Web Serial 😭. Use o Google Chrome.
     </div>
   </div>
@@ -35,7 +39,7 @@
 		  
 			<!-- Modal Header -->
 			<div class="modal-header">
-			  <h4 class="modal-title">Gravar Custom Firmware</h4>
+			  <h4 class="modal-title" data-i18n="modal.customFirmware.title">Gravar Custom Firmware</h4>
 			  <button type="button" class="close" data-dismiss="modal">&times;</button>
 			</div>
 			
@@ -85,10 +89,10 @@
 			  </form>
 			  <div class="lines-body">	
 				<esp-web-install-button id="customInstallButton">
-					<button slot="activate" class="btn btn-primary" style="background-color: #28a745;">Conectar</button>
+					<button slot="activate" class="btn btn-primary" style="background-color: #28a745;" data-i18n="btn.connect">Conectar</button>
 				  </esp-web-install-button>
 			  </div>
-			  <p>
+			  <div data-i18n-html="modal.instructions.html">
 				<strong>Instruções:</strong>
 				<ol>
 				  <li>Conecte a sua placa Franzininho a uma das portas USB de seu computador;</li>
@@ -101,7 +105,7 @@
 				  </li>
 				  <li>Clique no botão Conectar logo abaixo.</li>
 				</ol>
-			  </p>
+			  </div>
 			</div>
 			
 		  </div>
@@ -117,7 +121,7 @@
             <path d="M.5 9.9a.5.5 0 0 1 .5.5V13a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V10.4a.5.5 0 0 1 1 0V13a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V10.4a.5.5 0 0 1 .5-.5z"/>
             <path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V2.5a.5.5 0 0 0-1 0v7.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3z"/>
           </svg>
-          Gravar Custom Firmware
+          <span data-i18n="btn.customFirmware">Gravar Custom Firmware</span>
         </button>
       </div>
       <div class="col-12">
@@ -140,7 +144,7 @@
         </div>
         <div class="mt-2">
           <img src="./imagens/logo-branco.svg" alt="logo Franzininho" style="width:32px; margin-bottom: 0.3em;">
-          <span style="color: #fff;">&copy; 2026 Franzininho. Todos os direitos reservados.</span>
+          <span style="color: #fff;" data-i18n="footer.rights">© 2026 Franzininho. Todos os direitos reservados.</span>
         </div>
       </div>
     </footer>
@@ -154,12 +158,12 @@
           <button type="button" class="close" data-dismiss="modal">&times;</button>
         </div>
         <div class="modal-body">
-          <h4>Desenvolvedores:</h4>
+          <h4 data-i18n="modal.about.developers">Desenvolvedores:</h4>
           <ul>
             <li>Ewerton Leandro de Sousa</li>
             <li>Fabio Souza</li>
           </ul>
-          <h4>Baseado:</h4>
+          <h4 data-i18n="modal.about.basedOn">Baseado:</h4>
           <ul>
             <li>ESPHome - Nabu Casa</li>
             <li>ESP Web Tools</li>
@@ -168,7 +172,7 @@
           </ul>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-danger" data-dismiss="modal">Fechar</button>
+          <button type="button" class="btn btn-danger" data-dismiss="modal" data-i18n="btn.close">Fechar</button>
         </div>
       </div>
     </div>
