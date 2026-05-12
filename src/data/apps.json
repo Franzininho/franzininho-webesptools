@@ -50,6 +50,21 @@
     ]
   }, 
   {
+    "id": "lab01-oled-apps-demo",
+    "name": "LAB01 - OLED APPS Demo",
+    "description": "Demo unificado com menu de seleção de aplicações para a Franzininho WiFi LAB01. Apps disponíveis: Snake Game, T-Rex Game, Flappy Bird, Teste de Hardware, WiFi Scan, Mini Piano e Alarme/Timer.",
+    "category": "Exemplos",
+    "tags": ["demo"],
+    "boards": ["Franzininho WiFi LAB01"],
+    "soc": ["ESP32-S2"],
+    "image": "firmwares/lab01-oled-apps-demo/lab01-oled-apps-demo.png",
+    "url": "https://github.com/FBSeletronica/Franzininho-WiFi-LAB01-Demo",
+    "author": "Fabio Souza",
+    "versions": [
+      { "label": "1.0.0", "manifest": "firmwares/lab01-oled-apps-demo/1.0.0/manifest-1.0.0.json" }
+    ]
+  },
+  {
     "id": "snake-game",
     "name": "Snake Game",
     "description": "Jogo Snake para Franzininho WiFi LAB01",

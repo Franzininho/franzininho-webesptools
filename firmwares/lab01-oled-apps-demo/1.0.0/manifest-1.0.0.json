@@ -1,0 +1,15 @@
+{
+	"name": "LAB01 - OLED APPS Demo",
+	"version": "1.0.0",
+	"new_install_prompt_erase": true,
+	"builds": [
+	  {
+		"chipFamily": "ESP32-S2",
+		"parts": [
+		  { "path": "bootloader.bin", "offset": 4096 },
+		  { "path": "partitions.bin", "offset": 32768 },
+		  { "path": "app.bin", "offset": 65536 }
+		]
+	  }
+	]
+}
